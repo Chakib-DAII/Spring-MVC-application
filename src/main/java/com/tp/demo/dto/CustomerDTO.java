@@ -1,7 +1,6 @@
 package com.tp.demo.dto;
 
-import com.tp.demo.dao.entities.Customer;
-import lombok.Data;
+import java.util.Date;
 
 /**
  * Data Transfer Object :
@@ -10,37 +9,69 @@ import lombok.Data;
  * Note: When using DTO objects, we certainly need to introduce 2 methods called "MappingMethods"
  *       used in order to transform an entity to a DTO and a DTO to an entity
  */
-@Data
 public class CustomerDTO {
 
     private Long id;
     private String firstName;
     private String lastName;
+    private String cin;
+    private Date birthDate;
+    private String email;
+    private String telephone;
 
-
-    /**
-     * Maps an entity object to a DTO object
-     * @param entity source
-     * @return a DTO containing the values acquired from the entity
-     */
-    public static CustomerDTO fromEntityToDto(Customer entity) {
-        CustomerDTO dto = new CustomerDTO();
-        dto.setId(entity.getId());
-        dto.setFirstName(entity.getFirstName());
-        dto.setLastName(entity.getLastName());
-        return dto;
+    public Long getId() {
+        return id;
     }
 
-    /**
-     * Maps a DTO object to an entity object
-     * @param dto source
-     * @return an entity containing the values acquired from the DTO
-     */
-    public static Customer fromDtoToEntity(CustomerDTO dto) {
-        Customer entity = new Customer();
-        entity.setId(dto.getId());
-        entity.setFirstName(dto.getFirstName());
-        entity.setLastName(dto.getLastName());
-        return entity;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }
