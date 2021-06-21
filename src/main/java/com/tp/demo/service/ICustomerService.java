@@ -1,6 +1,6 @@
 package com.tp.demo.service;
 
-import com.tp.demo.dao.entities.Customer;
+import com.tp.demo.dto.CustomerDTO;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import java.util.List;
  */
 public interface ICustomerService {
 
-    void addCustomer(Customer customer);
+    void addCustomer(CustomerDTO customer, String bankCode);
 
-    void updateCustomer(Customer customer);
+    void updateCustomer(CustomerDTO customer);
 
     void deleteCustomer(Long id);
 
-    List<Customer> getAll();
+    List<CustomerDTO> getAll();
 }

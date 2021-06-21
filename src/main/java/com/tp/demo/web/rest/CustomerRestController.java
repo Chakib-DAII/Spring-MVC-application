@@ -1,10 +1,8 @@
 package com.tp.demo.web.rest;
 
-import com.tp.demo.dao.entities.Customer;
 import com.tp.demo.dto.CustomerDTO;
 import com.tp.demo.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,21 +11,21 @@ import java.util.List;
 @RequestMapping("/rest/customer")
 public class CustomerRestController {
 
-    // Dependency injection: Autowiring the service bean to the controller bean
+    private final ICustomerService service;
+
     @Autowired
-    // The qualifier annotation is used when we have more than one bean of the same type
-    // we need to specify the bean name that we want to inject
-    @Qualifier("customerServiceImpl")
-    private ICustomerService service;
+    public CustomerRestController(ICustomerService service) {
+        this.service = service;
+    }
 
     //@RequestBody annotation to indicate that the the request object could be found in the HttpRequest body
     @PostMapping("/add")
-    public void createCustomer(@RequestBody CustomerDTO customer) {
-        service.addCustomer(CustomerDTO.fromDtoToEntity(customer));
+    public void createCustomer(@RequestBody CustomerDTO customer, @RequestParam("bank-code") String bankCode) {
+        service.addCustomer(customer, bankCode);
     }
 
     @PutMapping("/update")
-    public void updateCustomer(@RequestBody Customer customer) {
+    public void updateCustomer(@RequestBody CustomerDTO customer) {
         service.updateCustomer(customer);
     }
 
@@ -44,7 +42,7 @@ public class CustomerRestController {
     }
 
     @GetMapping("/all")
-    public List<Customer> getAll() {
+    public List<CustomerDTO> getAll() {
         return service.getAll();
     }
 }
