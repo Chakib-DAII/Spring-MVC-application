@@ -14,24 +14,20 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>CIN</th>
-        <th>Birth Date</th>
-        <th>E-mail</th>
-        <th>Telephone</th>
+        <th>Account Number</th>
+        <th>Creation Date</th>
+        <th>Type</th>
+        <th>Balance</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${customers}" var="c">
+    <c:forEach items="${bankAccounts}" var="ba">
         <tr>
-            <td>${c.id}</td>
-            <td>${c.firstName}</td>
-            <td>${c.lastName}</td>
-            <td>${c.cin}</td>
-            <td>${c.birthDate}</td>
-            <td>${c.email}</td>
-            <td>${c.telephone}</td>
+            <td>${ba.id}</td>
+            <td>${ba.accountNumber}</td>
+            <td>${ba.creationDate}</td>
+            <td>${ba.type}</td>
+            <td>${ba.balance}</td>
         </tr>
     </c:forEach>
     </tbody>
