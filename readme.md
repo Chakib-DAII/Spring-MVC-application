@@ -24,17 +24,6 @@ For that we distinguish 3 layers :
   - service package: contains our business objects (services).
   - web package:  contains our Rest/MVC controllers.
   
-  As utility libraries we used **lombok**. It comes with annotations that we add to our Java classes 
-  mainly the POJO classes in order to generate getters/setters/toString/constructors... at runtime.
-  
-  - @Getter: generates getter methods for all fields.  
-  - @Setter: generates setter methods for all fields. 
-  - @ToString : generates toString method.
-  - @AllArgsConstructor: Constructor with all arguments (fields) of the class.
-  - @NoArgsConstructor: Empty constructor.
-  - @Data: generates getters/setters/toString/equals/hashCode
-  
-  
   **Note**: In order to work with Spring MVC in a spring boot application,
   we need to add 2 dependecies: 
   - JSTL: used in our jsp pages.
